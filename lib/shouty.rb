@@ -24,9 +24,11 @@ class Shouty
       shoutsHeard = {}
 
       @shouts.each do |shouter, shouts|
-        distance = @locations[listener].distance_from(@locations[shouter])
-        if (distance < MESSAGE_RANGE)
-          shoutsHeard[shouter] = shouts
+        if shouter != listener
+          distance = @locations[listener].distance_from(@locations[shouter])
+          if (distance < MESSAGE_RANGE)
+            shoutsHeard[shouter] = shouts
+          end
         end
       end
 

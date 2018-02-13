@@ -3,10 +3,6 @@ require 'coordinate'
 
 ARBITRARY_MESSAGE = 'Hello, world'
 
-Before do
-  @shouty = Shouty.new
-end
-
 When('{word} shouts') do |name|
   @shouty.shout(name, ARBITRARY_MESSAGE)
 end

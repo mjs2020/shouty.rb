@@ -28,9 +28,13 @@ Then('{word} should not hear {word}') do |listener, sender |
   expect(@shouty.shouts_heard_by(listener)).not_to have_key(sender)
 end
 
-
 Given('people are located at') do |table|
   table.hashes.each do | row |
     @shouty.set_location(row['name'], Coordinate.new(row['x'].to_i, row['y'].to_i))
   end
+end
+
+Then('{word} should hear {int} shouts from {word}') do |listener, shouts_num, sender|
+  expect(@shouty.shouts_heard_by(listener)).to have_key(sender)
+  expect(@shouty.shouts_heard_by(listener)[sender].size).to eq(shouts_num)
 end

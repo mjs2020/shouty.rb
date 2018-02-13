@@ -9,7 +9,7 @@ class Coordinate
   def distance_from(other)
     # TODO: actually calculate distance between the coordinates.
     #       e.g. (@x - other.x).abs
-
-    0
+    # Math.sqrt((@x - other.x).abs ** 2 + (@y - other.y).abs ** 2)
+    Math.hypot(@x - other.x, @y - other.y)
   end
 end

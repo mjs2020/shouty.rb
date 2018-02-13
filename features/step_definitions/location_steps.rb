@@ -1,5 +1,5 @@
-Given('{word} is at {int}, {int}') do |name, x, y|
-  @shouty.set_location(name, Coordinate.new(x, y))
+Given('{word} is at {coordinate}') do |name, coordinate|
+  @shouty.set_location(name, coordinate)
 end
 
 Given('people are located at') do |table|
